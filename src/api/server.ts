@@ -84,7 +84,8 @@ export const server_calls = {
                 throw new Error(message);
             }
 
-            return await response.json();  // Note: Delete typically does not return a body.
+            // Usually DELETE responses don't return a body
+            return { success: true };
         } catch (error) {
             console.error(`Failed to delete fighter with ID: ${id}:`, error);
             throw error;
